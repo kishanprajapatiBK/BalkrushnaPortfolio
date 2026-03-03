@@ -327,20 +327,20 @@ export function ExperienceSection() {
           {[
             {
               label: "Defects Found",
-              value: "2,500+",
+              value: "600+",
               icon: Bug,
               color: "from-red-500 to-pink-500",
             },
             {
               label: "Test Cases",
-              value: "10,000+",
+              value: "3000+",
               icon: TestTube,
               color: "from-blue-500 to-cyan-500",
             },
             { label: "Projects", value: "50+", icon: Box, color: "from-green-500 to-emerald-500" },
             {
               label: "Automation",
-              value: "80%",
+              value: "20%",
               icon: Code2,
               color: "from-purple-500 to-indigo-500",
             },

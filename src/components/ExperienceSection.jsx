@@ -337,7 +337,7 @@ export function ExperienceSection() {
               icon: TestTube,
               color: "from-blue-500 to-cyan-500",
             },
-            { label: "Projects", value: "50+", icon: Box, color: "from-green-500 to-emerald-500" },
+            { label: "Projects", value: "6+", icon: Box, color: "from-green-500 to-emerald-500" },
             {
               label: "Automation",
               value: "20%",

@@ -124,13 +124,13 @@ export function HeroSection() {
             {[
               {
                 label: "Test Cases",
-                value: "6K+",
+                value: "3K+",
                 icon: BiTestTube,
                 color: "from-purple-500 to-purple-600",
               },
               {
                 label: "Bugs Found",
-                value: "1K+",
+                value: "600+",
                 icon: BiBug,
                 color: "from-pink-500 to-pink-600",
               },

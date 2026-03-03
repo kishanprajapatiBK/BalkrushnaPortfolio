@@ -145,7 +145,7 @@ export function ExperienceSection() {
             className="inline-flex items-center gap-2 px-4 py-2 mb-6 border rounded-full bg-white/5 backdrop-blur-xl border-white/10"
           >
             <Briefcase className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-gray-300">8+ Years of Excellence</span>
+            <span className="text-sm text-gray-300">3+ Years of Excellence</span>
             <Award className="w-4 h-4 text-amber-400" />
           </motion.div>
 

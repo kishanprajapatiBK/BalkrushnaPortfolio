@@ -21,7 +21,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const skillCategories = [
   {
@@ -167,6 +167,22 @@ function SkillBar({ name, level, icon, color, index }) {
 }
 
 export function SkillsSection() {
+  const [particles, setParticles] = useState([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const arr = [...Array(20)].map((_, i) => ({
+        id: i,
+        x1: Math.random() * window.innerWidth,
+        x2: Math.random() * window.innerWidth,
+        y1: Math.random() * window.innerHeight,
+        y2: Math.random() * window.innerHeight,
+        duration: Math.random() * 20 + 20,
+      }));
+      setParticles(arr);
+    }
+  }, []);
+
   return (
     <section className="relative px-4 py-32 overflow-hidden">
       {/* Premium Animated Background */}
@@ -177,16 +193,13 @@ export function SkillsSection() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
         {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p) => (
           <motion.div
-            key={i}
+            key={p.id}
             className="absolute w-1 h-1 rounded-full bg-white/10"
-            animate={{
-              x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-              y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
-            }}
+            animate={{ x: [p.x1, p.x2], y: [p.y1, p.y2] }}
             transition={{
-              duration: Math.random() * 20 + 20,
+              duration: p.duration,
               repeat: Infinity,
               ease: "linear",
             }}

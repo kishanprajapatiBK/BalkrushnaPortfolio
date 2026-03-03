@@ -18,7 +18,7 @@ import {
   Star,
   Trophy,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const certificates = [
   {
@@ -249,6 +249,21 @@ function FlipCard({ certificate, index }) {
 }
 
 export function CertificatesSection() {
+  const [badges, setBadges] = useState([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const arr = [...Array(8)].map((_, i) => ({
+        id: i,
+        x1: Math.random() * window.innerWidth,
+        x2: Math.random() * window.innerWidth,
+        y1: Math.random() * window.innerHeight,
+        y2: Math.random() * window.innerHeight,
+        duration: Math.random() * 30 + 30,
+      }));
+      setBadges(arr);
+    }
+  }, []);
   return (
     <section className="relative px-4 py-32 overflow-hidden">
       {/* Premium Animated Background */}
@@ -277,17 +292,17 @@ export function CertificatesSection() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
         {/* Floating Badges */}
-        {[...Array(8)].map((_, i) => (
+        {badges.map((b) => (
           <motion.div
-            key={i}
+            key={b.id}
             className="absolute"
             animate={{
-              x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-              y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
+              x: [b.x1, b.x2],
+              y: [b.y1, b.y2],
               rotate: [0, 360],
             }}
             transition={{
-              duration: Math.random() * 30 + 30,
+              duration: b.duration,
               repeat: Infinity,
               ease: "linear",
             }}
